@@ -23,7 +23,12 @@ description: |
 
   And more! Open `about:help` in the app, or see help.gmi
 
-  This **unofficial snap** includes the mentioned TUI. You can use it by typing `lagrange-tsugu.tui` into your terminal. I tried making webp work as there is a flag for it but was unsuccessful.
+  This **unofficial snap** includes the mentioned TUI. You can use it by typing `lagrange-tsugu.tui` into your terminal. I tried making webp images work as there is a flag for it but was unsuccessful.
+website:
+  - https://gmi.skyjake.fi/lagrange/
+issues:
+  - https://github.com/Tsu-gu/lagrange-tsugu
+license: BSD 2-Clause License
 
 grade: stable
 confinement: strict
