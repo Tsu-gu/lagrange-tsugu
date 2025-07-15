@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Lagrange
+Exec=lagrange-tsugu
+Icon=${SNAP}/meta/gui/lagrange-tsugu.png
+Comment=Gemini space browser
+Terminal=false
+Type=Application
+MimeType=x-content/unix-software;
