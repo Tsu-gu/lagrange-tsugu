@@ -46,12 +46,8 @@ parts:
       - libpcre3-dev
       - zlib1g-dev
       - libunistring-dev
-      - libfribidi-dev
       - libmpg123-dev
-    #  - libwebp-dev
-    #  - libwebp7
-    #  - libwebpdemux2
-    #  - libwebpmux3
+  #   - libwebp-dev
       - meson
       - ninja-build
       - autotools-dev
@@ -66,15 +62,11 @@ parts:
       - libssl3
       - libpcre3
       - zlib1g
-      - libfribidi0
       - libmpg123-0
-    #  - libwebp7
-    #  - libwebpdemux2
-    #  - libwebpmux3
+    # - libwebp7
       - libfreetype6
       - libpng16-16
       - libfontconfig1
-      - libharfbuzz0b
       - libproxy1v5
     override-build: |
       git clone --recursive --branch release https://git.skyjake.fi/gemini/lagrange.git src
@@ -87,12 +79,11 @@ parts:
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DENABLE_HARFBUZZ_MINIMAL=YES \
+        -DTFDN_ENABLE_SSE41=NO \
         -DENABLE_FRIBIDI_BUILD=YES \
         -DENABLE_MPG123=YES \
-        -DENABLE_KERNING=NO \
-        -DENABLE_X11_SWRENDER=YES \
-        -DENABLE_WINDOWPOS_FIX=YES \
-        -DENABLE_IPC=YES \
+        -DENABLE_KERNING=YES \
+        -DENABLE_IDLE_SLEEP=ON \
         -DENABLE_TUI=YES
       
       # Build with max number of CPU cores
@@ -102,14 +93,14 @@ parts:
       DESTDIR=$SNAPCRAFT_PART_INSTALL cmake --build . --target install
     build-environment:
       - CMAKE_PREFIX_PATH: "$SNAPCRAFT_STAGE/usr"
-      - PKG_CONFIG_PATH: "$SNAPCRAFT_STAGE/usr/lib/pkgconfig:$SNAPCRAFT_STAGE/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig"
+      - PKG_CONFIG_PATH: "$SNAPCRAFT_STAGE/usr/lib/pkgconfig:$SNAPCRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:/usr/lib/pkgconfig:/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig"
 
 apps:
   lagrange-tsugu:
     command: usr/bin/lagrange
     extensions: [gnome]
     environment:
-      XDG_CONFIG_HOME: "$SNAP_USER_COMMON"
+      XDG_CONFIG_HOME: "$SNAP_USER_DATA"
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy
     plugs:
       - network
@@ -118,7 +109,6 @@ apps:
       - desktop
       - desktop-legacy
       - audio-playback
-      - password-manager-service
       - x11
       - wayland
       - unity7
@@ -128,7 +118,7 @@ apps:
     command: usr/bin/clagrange
     extensions: [gnome]
     environment:
-      XDG_CONFIG_HOME: "$SNAP_USER_COMMON"
+      XDG_CONFIG_HOME: "$SNAP_USER_DATA"
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy
     plugs:
       - network
@@ -137,7 +127,6 @@ apps:
       - desktop
       - desktop-legacy
       - audio-playback
-      - password-manager-service
       - x11
       - wayland
       - unity7
