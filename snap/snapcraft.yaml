@@ -110,13 +110,10 @@ apps:
       - network
       - network-bind
       - home
-      - desktop
-      - desktop-legacy
       - audio-playback
-      - x11
-      - wayland
       - unity7
-      - opengl
+      # plus removed because gnome extension has them already
+      
 
   tui:
     command: usr/bin/clagrange
