@@ -1,6 +1,6 @@
 name: lagrange-tsugu
 base: core24
-version: '1.20.0'
+version: '1.20.1'
 summary: Lagrange is a cross-platform client for browsing Geminispace
 description: |
   Lagrange is a cross-platform client for browsing Geminispace
