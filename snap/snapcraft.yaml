@@ -1,6 +1,6 @@
 name: lagrange-tsugu
 base: core24
-version: '1.20.5'
+version: '1.20.6'
 summary: Lagrange is a cross-platform client for browsing Geminispace
 description: |
   Lagrange is a cross-platform client for browsing Geminispace
@@ -112,7 +112,7 @@ apps:
       - home
       - audio-playback
       - unity7
-      # plus removed because gnome extension has them already
+      # plugs removed because gnome extension has them already
       
 
   tui:
