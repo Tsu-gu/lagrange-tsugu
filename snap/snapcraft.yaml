@@ -32,10 +32,10 @@ platforms:
   amd64:
   arm64:
 
-lint:
-  ignore:
-    - classic
-    - library
+# lint:
+ # ignore:
+  #  - classic
+  #  - library
 
 parts:
   lagrange-tsugu:
@@ -110,6 +110,7 @@ apps:
     environment:
       XDG_CONFIG_HOME: "$SNAP_USER_DATA"
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy
+      LIBDECOR_PLUGIN_DIR: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libdecor/plugins-1
     plugs:
       - network
       - network-bind
