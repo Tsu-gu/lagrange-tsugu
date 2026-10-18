@@ -51,7 +51,7 @@ parts:
       - zlib1g-dev
       - libunistring-dev
       - libmpg123-dev
-  #   - libwebp-dev
+      - libwebp-dev
       - meson
       - ninja-build
       - autotools-dev
@@ -67,7 +67,7 @@ parts:
       - libpcre3
       - zlib1g
       - libmpg123-0
-    # - libwebp7
+      - libwebp7
       - libfreetype6
       - libpng16-16
       - libfontconfig1
@@ -90,7 +90,9 @@ parts:
         -DENABLE_MPG123=YES \
         -DENABLE_KERNING=YES \
         -DENABLE_IDLE_SLEEP=ON \
-        -DENABLE_TUI=YES
+        -DENABLE_TUI=YES \
+        -DENABLE_WEBP=YES
+
       
       # Build with max number of CPU cores
       cmake --build . -j$(nproc)
