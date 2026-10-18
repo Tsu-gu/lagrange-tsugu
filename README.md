@@ -2,4 +2,7 @@
 
 Includes the TUI as well.
 
+# Release notes
+18.10.2026 - fixed window decorations disappearing
+
 [![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/lagrange-tsugu)
