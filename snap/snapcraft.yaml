@@ -72,6 +72,8 @@ parts:
       - libpng16-16
       - libfontconfig1
       - libproxy1v5
+      - libdecor-0-0
+      - libdecor-0-plugin-1-gtk
     override-build: |
       git clone --recursive --branch release https://git.skyjake.fi/gemini/lagrange.git src
       cd src
