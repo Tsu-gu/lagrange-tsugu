@@ -45,7 +45,7 @@ parts:
       - build-essential
       - pkg-config
       - zip
-      - libsdl2-dev
+      - libsdl3-dev         # Lagrange 2.x needs SDL 3; without it the GUI is silently skipped
       - libssl-dev
       - libpcre2-dev        # core24: libpcre3-dev (PCRE1). the_Foundation uses PCRE2.
       - zlib1g-dev
@@ -62,7 +62,7 @@ parts:
       - libncursesw6
       - libncurses-dev
     stage-packages:
-      - libsdl2-2.0-0
+      - libsdl3-0
       - libssl3t64          # was libssl3
       - libpcre2-8-0        # was libpcre3
       - libpcre2-posix3     # new: the_Foundation uses the PCRE2 POSIX wrapper (check with ldd)
