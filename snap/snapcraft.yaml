@@ -98,7 +98,7 @@ parts:
       cmake --build . -j$(nproc)
       
       # Install to snapcraft parts directory
-      DESTDIR=$SNAPCRAFT_PART_INSTALL cmake --build . --target install
+      DESTDIR=$CRAFT_PART_INSTALL cmake --install .
     build-environment:
       - CMAKE_PREFIX_PATH: "$SNAPCRAFT_STAGE/usr"
       - PKG_CONFIG_PATH: "$SNAPCRAFT_STAGE/usr/lib/pkgconfig:$SNAPCRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:/usr/lib/pkgconfig:/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig"
