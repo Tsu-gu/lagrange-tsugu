@@ -3,7 +3,7 @@
 Includes the TUI as well.
 
 # Release notes
-11.8 - broken, dont have the time to fix it
+11.8 - broken, dont have the time to fix it. Will stay stuck on this version
 18.10.2026 - fixed window decorations disappearing
 
 [![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/lagrange-tsugu)
