@@ -1,5 +1,5 @@
 name: lagrange-tsugu
-base: core24
+base: core26
 version: '2.0.0'
 summary: Lagrange is a cross-platform client for browsing Geminispace
 description: |
@@ -47,7 +47,7 @@ parts:
       - zip
       - libsdl2-dev
       - libssl-dev
-      - libpcre3-dev
+      - libpcre2-dev        # core24: libpcre3-dev (PCRE1). the_Foundation uses PCRE2.
       - zlib1g-dev
       - libunistring-dev
       - libmpg123-dev
@@ -63,13 +63,14 @@ parts:
       - libncurses-dev
     stage-packages:
       - libsdl2-2.0-0
-      - libssl3
-      - libpcre3
+      - libssl3t64          # was libssl3
+      - libpcre2-8-0        # was libpcre3
+      - libpcre2-posix3     # new: the_Foundation uses the PCRE2 POSIX wrapper (check with ldd)
       - zlib1g
-      - libmpg123-0
+      - libmpg123-0t64      # was libmpg123-0
       - libwebp7
       - libfreetype6
-      - libpng16-16
+      - libpng16-16t64      # was libpng16-16
       - libfontconfig1
       - libproxy1v5
       - libdecor-0-0
@@ -98,10 +99,10 @@ parts:
       cmake --build . -j$(nproc)
       
       # Install to snapcraft parts directory
-      DESTDIR=$CRAFT_PART_INSTALL cmake --install .
+      DESTDIR=$CRAFT_PART_INSTALL cmake --build . --target install
     build-environment:
-      - CMAKE_PREFIX_PATH: "$SNAPCRAFT_STAGE/usr"
-      - PKG_CONFIG_PATH: "$SNAPCRAFT_STAGE/usr/lib/pkgconfig:$SNAPCRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:/usr/lib/pkgconfig:/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig"
+      - CMAKE_PREFIX_PATH: "$CRAFT_STAGE/usr"
+      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/pkgconfig:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig:/usr/lib/pkgconfig:/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig"
 
 apps:
   lagrange-tsugu:
@@ -136,4 +137,4 @@ apps:
       - x11
       - wayland
       - unity7
-      - opengl    
+      - opengl
